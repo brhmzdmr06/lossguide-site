@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LossGuide | Practical support after loss</title>
+  <meta
+    name="description"
+    content="LossGuide helps UK families handle the practical steps after a loss with a clear, calm, step-by-step plan."
+  />
+  <meta property="og:title" content="LossGuide" />
+  <meta
+    property="og:description"
+    content="Clear practical guidance for UK families after a loss."
+  />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#2D4A3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #f5f0eb;
+      --bg-soft: #f9f6f2;
+      --panel: #ffffff;
+      --text: #1f2a25;
+      --muted: #5f6d66;
+      --line: #ded6cf;
+      --brand: #2d4a3e;
+      --brand-2: #3a5d4f;
+      --accent: #d8c6b4;
+      --shadow: 0 10px 30px rgba(24, 35, 30, 0.08);
+      --radius: 18px;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(180deg, #f8f4ef 0%, #f5f0eb 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(10px);
+      background: rgba(245, 240, 235, 0.82);
+      border-bottom: 1px solid rgba(45, 74, 62, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--brand);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-name {
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--brand);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(45, 74, 62, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-2);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: rgba(45, 74, 62, 0.18);
+      color: var(--brand);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(45, 74, 62, 0.04);
+    }
+
+    .hero {
+      padding: 72px 0 44px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(45, 74, 62, 0.08);
+      color: var(--brand);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 14px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      max-width: 12ch;
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.9rem, 3.2vw, 3rem);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+    }
+
+    .hero p {
+      max-width: 60ch;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .hero-notes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, #fff 0%, #f8f5f1 100%);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .hero-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(45, 74, 62, 0.08);
+      color: var(--brand);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+    }
+
+    .task {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid rgba(45, 74, 62, 0.08);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .task-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(45, 74, 62, 0.12);
+      margin-top: 2px;
+      flex: 0 0 22px;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 26px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 1.03rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(45, 74, 62, 0.08);
+      color: var(--brand);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .muted-box {
+      background: linear-gradient(180deg, #fff 0%, #fbfaf8 100%);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .bullet-list,
+    .pricing-features {
+      display: grid;
+      gap: 14px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .bullet-list li,
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--text);
+    }
+
+    .bullet-list li span,
+    .pricing-features li span {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(45, 74, 62, 0.1);
+      flex: 0 0 24px;
+      margin-top: 1px;
+    }
+
+    .steps {
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      padding-left: 72px;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--brand);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .pricing-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      height: 100%;
+    }
+
+    .pricing-card.featured {
+      border: 2px solid var(--brand);
+      transform: translateY(-4px);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--brand);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .pricing-top p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin: 8px 0 0;
+    }
+
+    .price-main {
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--brand);
+    }
+
+    .price-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .pricing-card .btn {
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .cta {
+      padding: 72px 0 86px;
+    }
+
+    .cta-wrap {
+      background: linear-gradient(135deg, #2d4a3e 0%, #3f5f52 100%);
+      color: #fff;
+      border-radius: 30px;
+      padding: 42px;
+      box-shadow: 0 20px 44px rgba(45, 74, 62, 0.24);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .cta-wrap p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.86);
+      max-width: 60ch;
+    }
+
+    .email-form {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .email-form input {
+      min-width: 280px;
+      flex: 1 1 320px;
+      height: 52px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 0 18px;
+      font: inherit;
+      outline: none;
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+    }
+
+    .email-form input::placeholder {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .email-form button {
+      min-width: 170px;
+    }
+
+    .fineprint {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .site-footer {
+      border-top: 1px solid rgba(45, 74, 62, 0.08);
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .cta-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      h1 {
+        max-width: 100%;
+      }
+
+      .pricing-card.featured {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 48px;
+      }
+
+      .section,
+      .cta {
+        padding: 56px 0;
+      }
+
+      .hero-card,
+      .card,
+      .muted-box,
+      .cta-wrap {
+        padding: 20px;
+      }
+
+      .email-form input,
+      .email-form button,
+      .hero-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="brand">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">LossGuide</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#why">Why LossGuide</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#early-access">Early access</a>
+      </nav>
+
+      <a href="#pricing" class="btn btn-primary">View Plans</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Practical support for UK families</div>
+          <h1>When someone dies, knowing what to do next shouldn’t be this hard.</h1>
+          <p>
+            LossGuide helps families in the UK handle the practical steps after a loss
+            with a clear, calm, step-by-step plan.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#pricing" class="btn btn-primary">View Plans</a>
+            <a href="#how" class="btn btn-secondary">See how it works</a>
+          </div>
+
+          <div class="hero-notes">
+            <span>Built for UK processes</span>
+            <span>Simple personalised checklist</span>
+            <span>Clear next steps</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <strong>Your checklist</strong>
+            <span class="pill">Example preview</span>
+          </div>
+
+          <div class="checklist">
+            <div class="task">
+              <div class="task-dot"></div>
+              <div>
+                <strong>Register the death</strong>
+                <div>Understand what documents you may need and where to start.</div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-dot"></div>
+              <div>
+                <strong>Notify government services</strong>
+                <div>Get guidance on who needs to be informed and in what order.</div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-dot"></div>
+              <div>
+                <strong>Handle banks and bills</strong>
+                <div>Keep track of financial accounts, subscriptions, and essential services.</div>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="task-dot"></div>
+              <div>
+                <strong>Check if probate applies</strong>
+                <div>Get a clearer idea of what may be needed next.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Most people don’t know where to start</h2>
+          <p>
+            After a loss, there are forms, legal steps, phone calls, accounts, deadlines,
+            and decisions to make. It can feel confusing even before grief is taken into account.
+            LossGuide is designed to make that process simpler.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="icon">01</div>
+            <h3>Too many steps</h3>
+            <p>
+              Important tasks are spread across different services, organisations, and systems.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="icon">02</div>
+            <h3>Too much uncertainty</h3>
+            <p>
+              People are often unsure what applies to their situation and what can wait.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why">
+      <div class="container">
+        <div class="section-head">
+          <h2>A simple plan, tailored to the situation</h2>
+          <p>
+            Answer a few questions and get a practical checklist built around UK-based next steps.
+            No jargon. No endless searching. Just a clearer route through what needs to happen.
+          </p>
+        </div>
+
+        <div class="muted-box">
+          <ul class="bullet-list">
+            <li><span></span><div>Registering the death</div></li>
+            <li><span></span><div>Informing government services</div></li>
+            <li><span></span><div>Handling banks, accounts, and finances</div></li>
+            <li><span></span><div>Managing bills, utilities, and subscriptions</div></li>
+            <li><span></span><div>Understanding probate if it may apply</div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <p>
+            The goal is simple: reduce overwhelm and help people move through the practical side
+            of loss one step at a time.
+          </p>
+        </div>
+
+        <div class="grid-3 steps">
+          <div class="card step">
+            <h3>Answer a few questions</h3>
+            <p>
+              Share a few details so the guidance can match the situation more closely.
+            </p>
+          </div>
+
+          <div class="card step">
+            <h3>Get a personalised checklist</h3>
+            <p>
+              See a clearer list of what to do next, in a more useful order.
+            </p>
+          </div>
+
+          <div class="card step">
+            <h3>Track progress</h3>
+            <p>
+              Stay organised, mark steps complete, and avoid missing important actions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Why people would use LossGuide</h2>
+          <p>
+            It is not about replacing legal advice. It is about making the practical process
+            easier to understand and easier to manage.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Know what to do next</h3>
+            <p>
+              Clearer direction instead of trying to piece everything together from different places.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Avoid missing steps</h3>
+            <p>
+              Important tasks are easier to keep track of when they are laid out in one place.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Save time and stress</h3>
+            <p>
+              Less searching, less second-guessing, and less mental load during a difficult time.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Built for the UK</h3>
+            <p>
+              The structure is designed around UK processes and the realities families actually face.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>Choose your plan</h2>
+          <p>
+            Start free, or unlock a more complete step-by-step experience.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card pricing-card">
+            <div class="pricing-top">
+              <h3>Free</h3>
+              <p>Basic checklist</p>
+              <div class="price">
+                <span class="price-main">Free</span>
+                <span class="price-sub">£0</span>
+              </div>
+            </div>
+
+            <ul class="pricing-features">
+              <li><span></span><div>Basic steps</div></li>
+              <li><span></span><div>General guidance</div></li>
+              <li><span></span><div>Simple overview</div></li>
+            </ul>
+
+            <a href="#early-access" class="btn btn-secondary">Start Free</a>
+          </div>
+
+          <div class="card pricing-card featured">
+            <div class="pricing-badge">Most popular</div>
+
+            <div class="pricing-top">
+              <h3>Essential</h3>
+              <p>Full checklist</p>
+              <div class="price">
+                <span class="price-main">£9</span>
+                <span class="price-sub">one-time</span>
+              </div>
+            </div>
+
+            <ul class="pricing-features">
+              <li><span></span><div>Full checklist</div></li>
+              <li><span></span><div>UK-specific guidance</div></li>
+              <li><span></span><div>Step-by-step order</div></li>
+            </ul>
+
+            <a href="STRIPE_LINK_ESSENTIAL" class="btn btn-primary">Get Essential</a>
+          </div>
+
+          <div class="card pricing-card">
+            <div class="pricing-top">
+              <h3>Premium</h3>
+              <p>Full support</p>
+              <div class="price">
+                <span class="price-main">£19</span>
+                <span class="price-sub">one-time</span>
+              </div>
+            </div>
+
+            <ul class="pricing-features">
+              <li><span></span><div>Everything in Essential</div></li>
+              <li><span></span><div>Priority updates</div></li>
+              <li><span></span><div>Future tools access</div></li>
+            </ul>
+
+            <a href="STRIPE_LINK_PREMIUM" class="btn btn-secondary">Get Premium</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="early-access">
+      <div class="container">
+        <div class="cta-wrap">
+          <div>
+            <h2>Get early access</h2>
+            <p>
+              We’re building LossGuide to make this process clearer and less overwhelming for UK families.
+              Join the list and be first to hear when it launches.
+            </p>
+
+            <form class="email-form" onsubmit="handleSubmit(event)">
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+              />
+              <button type="submit" class="btn btn-primary">Get Early Access</button>
+            </form>
+
+            <div class="fineprint" id="formMessage">
+              Free to use. No spam. Ever.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>© 2026 LossGuide. Built for UK families.</div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("formMessage");
+
+      if (!email) {
+        message.textContent = "Please enter your email address.";
+        return;
+      }
+
+      message.textContent = "Thanks. You’ve been added to the early access list.";
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>
