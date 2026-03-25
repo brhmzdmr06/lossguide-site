@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guides | LossGuide — What to do after a death in the UK</title>
+  <meta name="description" content="Free guides for UK families navigating the practical steps after a death. Registering a death, Tell Us Once, probate, banks, and more." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.lossguide.co.uk/guides.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f5f0eb;
+      --panel: #ffffff;
+      --text: #1f2a25;
+      --muted: #5f6d66;
+      --line: #ded6cf;
+      --brand: #2d4a3e;
+      --brand-2: #3a5d4f;
+      --shadow: 0 10px 30px rgba(24,35,30,0.08);
+      --radius: 18px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(180deg, #f8f4ef 0%, #f5f0eb 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      position: sticky; top: 0; z-index: 30;
+      backdrop-filter: blur(10px);
+      background: rgba(245,240,235,0.82);
+      border-bottom: 1px solid rgba(45,74,62,0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      background: var(--brand);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-name { font-size: 1rem; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: var(--brand); }
+    .nav-links a.active { color: var(--brand); font-weight: 600; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s ease;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(45,74,62,0.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-2);
+      transform: translateY(-1px);
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(45,74,62,0.08);
+      color: var(--brand);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .page-hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .page-hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 56ch;
+    }
+
+    /* ── GUIDES GRID ── */
+    .guides-section {
+      padding: 48px 0 80px;
+    }
+
+    .guides-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .guide-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(24,35,30,0.11);
+    }
+
+    .guide-card-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(45,74,62,0.07);
+      color: var(--brand);
+      font-size: 0.78rem;
+      font-weight: 600;
+      width: fit-content;
+    }
+
+    .guide-card h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    .guide-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .guide-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+    }
+
+    .guide-card-link {
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* coming soon card */
+    .guide-card.soon {
+      opacity: 0.6;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .guide-card.soon:hover { transform: none; box-shadow: var(--shadow); }
+
+    .soon-badge {
+      display: inline-flex;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--line);
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: linear-gradient(135deg, #2d4a3e 0%, #3f5f52 100%);
+      border-radius: 24px;
+      padding: 36px 32px;
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    .cta-strip h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .cta-strip p {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.97rem;
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      transition: 0.2s ease;
+    }
+
+    .btn-white:hover { transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      border-top: 1px solid rgba(45,74,62,0.08);
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .footer-links a:hover { color: var(--brand); }
+
+    @media (max-width: 900px) {
+      .guides-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-strip { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 560px) {
+      .guides-grid { grid-template-columns: 1fr; }
+      .page-hero { padding: 40px 0 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">LossGuide</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#why">Why LossGuide</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="guides.html" class="active">Guides</a>
+      </nav>
+
+      <a href="index.html#free-checklist" class="btn btn-primary">Get free checklist</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <div class="eyebrow">Free guides</div>
+        <h1>Practical guides for UK families</h1>
+        <p>Clear, detailed guidance on every step of the bereavement admin process — written for families navigating a difficult time.</p>
+      </div>
+    </section>
+
+    <section class="guides-section">
+      <div class="container">
+
+        <div class="guides-grid">
+
+          <!-- Guide 1 — published -->
+          <a href="what-to-do-after-a-death-in-the-uk.html" class="guide-card">
+            <span class="guide-card-tag">Complete guide</span>
+            <h2>What to Do After a Death in the UK</h2>
+            <p>A full step-by-step guide covering everything from the first 24 hours through to probate and estate distribution.</p>
+            <div class="guide-card-meta">
+              <span>15 min read · March 2026</span>
+              <span class="guide-card-link">Read →</span>
+            </div>
+          </a>
+
+          <!-- Guide 2 — coming soon -->
+          <div class="guide-card soon">
+            <span class="guide-card-tag">Registration</span>
+            <h2>How to Register a Death in the UK</h2>
+            <p>What to bring, where to go, how long you have, and what documents you will receive.</p>
+            <div class="guide-card-meta">
+              <span>Coming soon</span>
+              <span class="soon-badge">Soon</span>
+            </div>
+          </div>
+
+          <!-- Guide 3 — coming soon -->
+          <div class="guide-card soon">
+            <span class="guide-card-tag">Government</span>
+            <h2>Tell Us Once — A Complete Guide</h2>
+            <p>How to use the Tell Us Once service, what it covers, and what you still need to do separately.</p>
+            <div class="guide-card-meta">
+              <span>Coming soon</span>
+              <span class="soon-badge">Soon</span>
+            </div>
+          </div>
+
+          <!-- Guide 4 — coming soon -->
+          <div class="guide-card soon">
+            <span class="guide-card-tag">Legal</span>
+            <h2>Do I Need Probate? A UK Guide</h2>
+            <p>When probate is required, when it is not, how to apply, and how long it takes.</p>
+            <div class="guide-card-meta">
+              <span>Coming soon</span>
+              <span class="soon-badge">Soon</span>
+            </div>
+          </div>
+
+          <!-- Guide 5 — coming soon -->
+          <div class="guide-card soon">
+            <span class="guide-card-tag">Finances</span>
+            <h2>Notifying Banks After a Death in the UK</h2>
+            <p>How to notify banks and building societies, what happens to accounts, and how to access estate funds.</p>
+            <div class="guide-card-meta">
+              <span>Coming soon</span>
+              <span class="soon-badge">Soon</span>
+            </div>
+          </div>
+
+          <!-- Guide 6 — coming soon -->
+          <div class="guide-card soon">
+            <span class="guide-card-tag">Admin</span>
+            <h2>Bereavement Checklist UK — Everything to Do</h2>
+            <p>A comprehensive checklist of every task to complete after a death, organised by priority.</p>
+            <div class="guide-card-meta">
+              <span>Coming soon</span>
+              <span class="soon-badge">Soon</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="height: 48px;"></div>
+
+        <!-- CTA -->
+        <div class="cta-strip">
+          <div>
+            <h2>Want the full step-by-step guide?</h2>
+            <p>The paid guides include letter templates, a UK resource directory, and a 25-task printable tracker.</p>
+          </div>
+          <a href="index.html#pricing" class="btn-white">See pricing</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>© 2026 LossGuide. Built for UK families.</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
