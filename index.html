@@ -1054,21 +1054,18 @@
               Get a free basic checklist for what to do after a death in the UK, plus updates as LossGuide grows.
             </p>
 
-            <form class="email-form" action="https://formspree.io/f/xjgpbobv" method="POST">
-              <input type="hidden" name="_subject" value="New LossGuide lead" />
-              <input type="hidden" name="_redirect" value="https://www.lossguide.co.uk/thanks.html" />
-
+            <form class="email-form" id="leadForm">
               <input
                 type="email"
                 name="email"
+                id="leadEmail"
                 placeholder="Enter your email"
                 required
               />
-
-              <button type="submit" class="btn btn-primary">Get free checklist</button>
+              <button type="submit" class="btn btn-primary" id="leadBtn">Get free checklist</button>
             </form>
 
-            <div class="fineprint">
+            <div class="fineprint" id="leadFineprint">
               Free to access. No spam. Unsubscribe anytime.
             </div>
           </div>
@@ -1088,5 +1085,30 @@
     </div>
   </footer>
 
+  <script>
+    document.getElementById('leadForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const email = document.getElementById('leadEmail').value;
+      const btn = document.getElementById('leadBtn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://formspree.io/f/xjgpbobv', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email: email, _subject: 'New LossGuide lead' })
+        });
+        if (res.ok) {
+          window.location.href = 'https://www.lossguide.co.uk/thanks.html';
+        } else {
+          btn.textContent = 'Try again';
+          btn.disabled = false;
+        }
+      } catch(err) {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
