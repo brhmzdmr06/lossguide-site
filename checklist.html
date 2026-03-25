@@ -1,69 +1,610 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Checklist | LossGuide</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Checklist | LossGuide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #2D4A3E;
+      --brand-lt: #3A5D4F;
+      --muted: #5F6D66;
+      --line: #DED6CF;
+      --text: #1F2A25;
+      --bg: #F5F0EB;
+      --panel: #ffffff;
+      --shadow: 0 10px 30px rgba(24,35,30,0.08);
+    }
 
-<style>
-body {
-  font-family: Arial;
-  background:#f5f0eb;
-  margin:0;
-  padding:40px;
-}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-.container {
-  max-width:800px;
-  margin:auto;
-}
+    body {
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(180deg, #f8f4ef 0%, #f5f0eb 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-.card {
-  background:#fff;
-  padding:30px;
-  border-radius:15px;
-}
+    /* ── HEADER ── */
+    header {
+      position: sticky; top: 0; z-index: 30;
+      backdrop-filter: blur(10px);
+      background: rgba(245,240,235,0.82);
+      border-bottom: 1px solid rgba(45,74,62,0.08);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-h1 { color:#2d4a3e; }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
 
-.task {
-  display:flex;
-  gap:10px;
-  margin:15px 0;
-}
+    .brand-mark {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: var(--brand);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-family: "Playfair Display", serif;
+      font-size: 16px;
+      box-shadow: var(--shadow);
+    }
 
-input { transform: scale(1.3); }
-</style>
+    .upgrade-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: var(--brand);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(45,74,62,0.18);
+      transition: 0.2s ease;
+    }
+
+    .upgrade-btn:hover {
+      background: var(--brand-lt);
+      transform: translateY(-1px);
+    }
+
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      padding: 40px 20px 60px;
+      width: min(760px, 100%);
+      margin: 0 auto;
+    }
+
+    .page-header {
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(45,74,62,0.08);
+      color: var(--brand);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .page-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ── PROGRESS BAR ── */
+    .progress-wrap {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .progress-bar-bg {
+      flex: 1;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(45,74,62,0.08);
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--brand);
+      transition: width 0.3s ease;
+    }
+
+    .progress-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--brand);
+      white-space: nowrap;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .section-icon {
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      background: rgba(45,74,62,0.08);
+      color: var(--brand);
+      display: grid;
+      place-items: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .section-title h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* ── TASK ITEMS ── */
+    .task-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid rgba(45,74,62,0.07);
+      border-radius: 12px;
+      background: #fafaf8;
+      cursor: pointer;
+      transition: 0.15s ease;
+      user-select: none;
+    }
+
+    .task-item:hover { background: rgba(45,74,62,0.03); }
+
+    .task-item.done {
+      background: rgba(45,74,62,0.04);
+      border-color: rgba(45,74,62,0.12);
+    }
+
+    .task-item.done .task-label {
+      color: var(--muted);
+      text-decoration: line-through;
+      text-decoration-color: rgba(45,74,62,0.3);
+    }
+
+    /* custom checkbox */
+    .task-checkbox {
+      width: 20px; height: 20px;
+      border-radius: 6px;
+      border: 1.5px solid var(--line);
+      background: #fff;
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: grid;
+      place-items: center;
+      transition: 0.15s ease;
+    }
+
+    .task-item.done .task-checkbox {
+      background: var(--brand);
+      border-color: var(--brand);
+    }
+
+    .task-checkbox svg {
+      width: 11px; height: 11px;
+      opacity: 0;
+      transition: 0.15s ease;
+    }
+
+    .task-item.done .task-checkbox svg { opacity: 1; }
+
+    .task-label {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .task-detail {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ── UPGRADE NUDGE ── */
+    .upgrade-nudge {
+      background: linear-gradient(135deg, #2d4a3e 0%, #3f5f52 100%);
+      border-radius: 20px;
+      padding: 28px 24px;
+      color: #fff;
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    .upgrade-nudge h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .upgrade-nudge p {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      max-width: 44ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .nudge-btns {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--brand);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .btn-white:hover { transform: translateY(-1px); }
+
+    .btn-outline-white {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .btn-outline-white:hover { background: rgba(255,255,255,0.08); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(45,74,62,0.06);
+    }
+
+    footer a { color: var(--brand); text-decoration: none; }
+
+    @media (max-width: 480px) {
+      main { padding: 28px 16px 48px; }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
-  <div class="card">
-    <h1>Your Step-by-Step Checklist</h1>
+  <header>
+    <a href="index.html" class="brand">
+      <span class="brand-mark">L</span>
+      LossGuide
+    </a>
+    <a href="https://buy.stripe.com/aFa28q53R2tSfI85KP5sA04" class="upgrade-btn">
+      Get full guide — £9
+    </a>
+  </header>
 
-    <div class="task">
-      <input type="checkbox"> Register the death
+  <main>
+
+    <div class="page-header">
+      <div class="eyebrow">Free checklist</div>
+      <h1>Your step-by-step checklist</h1>
+      <p class="page-sub">Tick each task as you complete it. Progress is saved in your browser.</p>
     </div>
 
-    <div class="task">
-      <input type="checkbox"> Inform Tell Us Once service
+    <!-- Progress bar -->
+    <div class="progress-wrap">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+      </div>
+      <div class="progress-label" id="progressLabel">0 / 6 done</div>
     </div>
 
-    <div class="task">
-      <input type="checkbox"> Notify banks and finances
+    <!-- Section 1 -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon">01</div>
+        <h2>Register the death</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item" onclick="toggle(this)">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="task-label">Contact your local register office</div>
+            <div class="task-detail">Register within 5 days (England, Wales, NI) or 8 days (Scotland).</div>
+          </div>
+        </div>
+        <div class="task-item" onclick="toggle(this)">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="task-label">Obtain death certificates</div>
+            <div class="task-detail">Order at least 4–6 certified copies — banks and insurers each need one.</div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="task">
-      <input type="checkbox"> Cancel bills and subscriptions
+    <!-- Section 2 -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon">02</div>
+        <h2>Use Tell Us Once</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item" onclick="toggle(this)">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="task-label">Notify government services via Tell Us Once</div>
+            <div class="task-detail">Covers DWP, HMRC, DVLA, Passport Office, and local council in one step.</div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="task">
-      <input type="checkbox"> Check probate requirements
+    <!-- Section 3 -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon">03</div>
+        <h2>Inform key organisations</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item" onclick="toggle(this)">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="task-label">Notify banks and building societies</div>
+            <div class="task-detail">Visit in branch or write — bring a certified death certificate.</div>
+          </div>
+        </div>
+        <div class="task-item" onclick="toggle(this)">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="task-label">Contact insurance providers</div>
+            <div class="task-detail">Life, home, car, and travel insurance.</div>
+          </div>
+        </div>
+        <div class="task-item" onclick="toggle(this)">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="task-label">Notify employer and pension providers</div>
+            <div class="task-detail">Check for a death-in-service benefit with the employer.</div>
+          </div>
+        </div>
+      </div>
     </div>
 
-  </div>
-</div>
+    <!-- Section 4 -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon">04</div>
+        <h2>Manage finances</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item" onclick="toggle(this)">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="task-label">Request account details and balances</div>
+            <div class="task-detail">You will need this for probate if applicable.</div>
+          </div>
+        </div>
+        <div class="task-item" onclick="toggle(this)">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="task-label">Cancel unnecessary direct debits and payments</div>
+            <div class="task-detail">Check 2–3 months of bank statements to find all subscriptions.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon">05</div>
+        <h2>Handle bills and utilities</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item" onclick="toggle(this)">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="task-label">Take meter readings and notify utility providers</div>
+            <div class="task-detail">Gas, electricity, and water. Take readings immediately to fix the final bill date.</div>
+          </div>
+        </div>
+        <div class="task-item" onclick="toggle(this)">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="task-label">Notify the council about council tax</div>
+            <div class="task-detail">The property may be exempt while empty during probate.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon">06</div>
+        <h2>Check if probate applies</h2>
+      </div>
+      <div class="task-list">
+        <div class="task-item" onclick="toggle(this)">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="task-label">Locate the will and identify the executor</div>
+            <div class="task-detail">Check with solicitors, banks, or personal papers.</div>
+          </div>
+        </div>
+        <div class="task-item" onclick="toggle(this)">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="task-label">Check whether a Grant of Probate is needed</div>
+            <div class="task-detail">Usually required for solely owned property, large accounts, or investments.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upgrade nudge -->
+    <div class="upgrade-nudge">
+      <h3>Need more detail?</h3>
+      <p>The full guide covers every step in depth — plus letter templates, a UK resource directory, and a 25-task progress tracker.</p>
+      <div class="nudge-btns">
+        <a href="https://buy.stripe.com/aFa28q53R2tSfI85KP5sA04" class="btn-white">Get Essential — £9</a>
+        <a href="https://buy.stripe.com/7sY3cucwjgkIbrS6OT5sA05" class="btn-outline-white">Get Premium — £19</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    © 2026 LossGuide · <a href="index.html">Home</a>
+  </footer>
+
+  <script>
+    const STORAGE_KEY = 'lg_checklist';
+
+    function getState() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+      catch { return {}; }
+    }
+
+    function saveState(state) {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+      catch {}
+    }
+
+    function toggle(el) {
+      el.classList.toggle('done');
+      updateProgress();
+      persistState();
+    }
+
+    function updateProgress() {
+      const all = document.querySelectorAll('.task-item');
+      const done = document.querySelectorAll('.task-item.done');
+      const pct = all.length ? Math.round((done.length / all.length) * 100) : 0;
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressLabel').textContent = done.length + ' / ' + all.length + ' done';
+    }
+
+    function persistState() {
+      const items = document.querySelectorAll('.task-item');
+      const state = {};
+      items.forEach((el, i) => { state[i] = el.classList.contains('done'); });
+      saveState(state);
+    }
+
+    function restoreState() {
+      const state = getState();
+      const items = document.querySelectorAll('.task-item');
+      items.forEach((el, i) => {
+        if (state[i]) el.classList.add('done');
+      });
+      updateProgress();
+    }
+
+    restoreState();
+  </script>
 
 </body>
 </html>
