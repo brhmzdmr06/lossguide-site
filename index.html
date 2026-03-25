@@ -469,16 +469,6 @@
       font-size: 0.96rem;
     }
 
-    .final-cta {
-      text-align: center;
-      margin-top: 34px;
-    }
-
-    .final-cta p {
-      margin: 0 0 18px;
-      color: var(--muted);
-    }
-
     .cta {
       padding: 72px 0 86px;
     }
@@ -618,7 +608,7 @@
         <a href="#how">How it works</a>
         <a href="#why">Why LossGuide</a>
         <a href="#pricing">Pricing</a>
-        <a href="#early-access">Early access</a>
+        <a href="#free-checklist">Free checklist</a>
       </nav>
 
       <a href="#pricing" class="btn btn-primary">Get your checklist</a>
@@ -834,9 +824,9 @@
     <section class="section" id="pricing">
       <div class="container">
         <div class="section-head">
-          <h2>Choose your plan</h2>
+          <h2>Choose the level of guidance you need</h2>
           <p>
-            Start free, or unlock a more complete checklist and clearer step-by-step guidance.
+            Start with the free checklist, or get the full step-by-step version for clearer guidance.
           </p>
         </div>
 
@@ -844,7 +834,7 @@
           <div class="card pricing-card">
             <div class="pricing-top">
               <h3>Free</h3>
-              <p>Basic overview</p>
+              <p>Basic checklist</p>
               <div class="price">
                 <span class="price-main">Free</span>
                 <span class="price-sub">£0</span>
@@ -852,12 +842,12 @@
             </div>
 
             <ul class="pricing-features">
-              <li><span></span><div>Basic steps</div></li>
-              <li><span></span><div>General guidance</div></li>
-              <li><span></span><div>Simple overview</div></li>
+              <li><span></span><div>Basic step overview</div></li>
+              <li><span></span><div>Main UK next steps</div></li>
+              <li><span></span><div>Simple starting guidance</div></li>
             </ul>
 
-            <a href="#early-access" class="btn btn-secondary">Start free</a>
+            <a href="#free-checklist" class="btn btn-secondary">Get free checklist</a>
           </div>
 
           <div class="card pricing-card featured">
@@ -865,7 +855,7 @@
 
             <div class="pricing-top">
               <h3>Essential</h3>
-              <p>Full checklist</p>
+              <p>Full step-by-step checklist</p>
               <div class="price">
                 <span class="price-main">£9</span>
                 <span class="price-sub">one-time</span>
@@ -874,17 +864,18 @@
 
             <ul class="pricing-features">
               <li><span></span><div>Full UK checklist</div></li>
-              <li><span></span><div>Clear step-by-step guidance</div></li>
-              <li><span></span><div>Immediate access</div></li>
+              <li><span></span><div>Clear step-by-step order</div></li>
+              <li><span></span><div>Guidance on registration, Tell Us Once, finances, and bills</div></li>
+              <li><span></span><div>Instant access</div></li>
             </ul>
 
-            <a href="STRIPE_LINK_ESSENTIAL" class="btn btn-primary">Get your checklist</a>
+            <a href="STRIPE_LINK_ESSENTIAL" class="btn btn-primary">Get Essential</a>
           </div>
 
           <div class="card pricing-card">
             <div class="pricing-top">
               <h3>Premium</h3>
-              <p>Extra clarity</p>
+              <p>Extra clarity and support</p>
               <div class="price">
                 <span class="price-main">£19</span>
                 <span class="price-sub">one-time</span>
@@ -893,103 +884,47 @@
 
             <ul class="pricing-features">
               <li><span></span><div>Everything in Essential</div></li>
-              <li><span></span><div>Priority checklist flow</div></li>
-              <li><span></span><div>Simplified step order</div></li>
-              <li><span></span><div>Designed for faster completion</div></li>
+              <li><span></span><div>More structured checklist flow</div></li>
+              <li><span></span><div>Priority access to future updates</div></li>
+              <li><span></span><div>Built for faster completion</div></li>
             </ul>
 
-            <a href="STRIPE_LINK_PREMIUM" class="btn btn-secondary">Get premium</a>
+            <a href="STRIPE_LINK_PREMIUM" class="btn btn-secondary">Get Premium</a>
           </div>
         </div>
 
         <div class="pricing-note">
           One-time payment • No subscription • Instant access
         </div>
-
-        <div class="final-cta">
-          <p>Start now and know exactly what to do next.</p>
-          <a href="#pricing" class="btn btn-primary">Choose your plan</a>
-        </div>
       </div>
     </section>
 
-    <section class="section" id="pricing">
-  <div class="container">
-    <div class="section-head">
-      <h2>Choose the level of guidance you need</h2>
-      <p>
-        Start with the free checklist, or get the full step-by-step version for clearer guidance.
-      </p>
-    </div>
+    <section class="cta" id="free-checklist">
+      <div class="container">
+        <div class="cta-wrap">
+          <div>
+            <h2>Get the free checklist</h2>
+            <p>
+              Get a free basic checklist for what to do after a death in the UK, plus updates as LossGuide grows.
+            </p>
 
-    <div class="grid-3">
-      <div class="card pricing-card">
-        <div class="pricing-top">
-          <h3>Free</h3>
-          <p>Basic checklist</p>
-          <div class="price">
-            <span class="price-main">Free</span>
-            <span class="price-sub">£0</span>
+            <form class="email-form" action="YOUR_FORMSPREE_ENDPOINT" method="POST">
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+              <button type="submit" class="btn btn-primary">Get free checklist</button>
+            </form>
+
+            <div class="fineprint">
+              Free to access. No spam. Unsubscribe anytime.
+            </div>
           </div>
         </div>
-
-        <ul class="pricing-features">
-          <li><span></span><div>Basic step overview</div></li>
-          <li><span></span><div>Main UK next steps</div></li>
-          <li><span></span><div>Simple starting guidance</div></li>
-        </ul>
-
-        <a href="#early-access" class="btn btn-secondary">Get free checklist</a>
       </div>
-
-      <div class="card pricing-card featured">
-        <div class="pricing-badge">Most popular</div>
-
-        <div class="pricing-top">
-          <h3>Essential</h3>
-          <p>Full step-by-step checklist</p>
-          <div class="price">
-            <span class="price-main">£9</span>
-            <span class="price-sub">one-time</span>
-          </div>
-        </div>
-
-        <ul class="pricing-features">
-          <li><span></span><div>Full UK checklist</div></li>
-          <li><span></span><div>Clear step-by-step order</div></li>
-          <li><span></span><div>Guidance on registration, Tell Us Once, finances, and bills</div></li>
-          <li><span></span><div>Instant access</div></li>
-        </ul>
-
-        <a href="STRIPE_LINK_ESSENTIAL" class="btn btn-primary">Get Essential</a>
-      </div>
-
-      <div class="card pricing-card">
-        <div class="pricing-top">
-          <h3>Premium</h3>
-          <p>Extra clarity and support</p>
-          <div class="price">
-            <span class="price-main">£19</span>
-            <span class="price-sub">one-time</span>
-          </div>
-        </div>
-
-        <ul class="pricing-features">
-          <li><span></span><div>Everything in Essential</div></li>
-          <li><span></span><div>More structured checklist flow</div></li>
-          <li><span></span><div>Priority access to future updates</div></li>
-          <li><span></span><div>Built for faster completion</div></li>
-        </ul>
-
-        <a href="STRIPE_LINK_PREMIUM" class="btn btn-secondary">Get Premium</a>
-      </div>
-    </div>
-
-    <div class="pricing-note">
-      One-time payment • No subscription • Instant access
-    </div>
-  </div>
-</section>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -1001,21 +936,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    function handleSubmit(event) {
-      event.preventDefault();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("formMessage");
-
-      if (!email) {
-        message.textContent = "Please enter your email address.";
-        return;
-      }
-
-      message.textContent = "Thanks. You’ve been added to the early access list.";
-      event.target.reset();
-    }
-  </script>
 </body>
 </html>
