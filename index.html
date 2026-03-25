@@ -869,7 +869,7 @@
               <li><span></span><div>Instant access</div></li>
             </ul>
 
-            <a href="https://buy.stripe.com/aFa28q53R2tSfI85KP5sA04">Get Essential</a>
+            <a href="STRIPE_LINK_ESSENTIAL" class="btn btn-primary">Get Essential</a>
           </div>
 
           <div class="card pricing-card">
@@ -889,7 +889,7 @@
               <li><span></span><div>Built for faster completion</div></li>
             </ul>
 
-            <a href="https://buy.stripe.com/7sY3cucwjgkIbrS6OT5sA05" class="btn btn-secondary">Get Premium</a>
+            <a href="STRIPE_LINK_PREMIUM" class="btn btn-secondary">Get Premium</a>
           </div>
         </div>
 
@@ -908,13 +908,17 @@
               Get a free basic checklist for what to do after a death in the UK, plus updates as LossGuide grows.
             </p>
 
-            <form class="email-form" action="https://formspree.io/f/xjgpbobv" method="POST">
+            <form class="email-form" action="YOUR_FORMSPREE_ENDPOINT" method="POST">
+              <input type="hidden" name="_subject" value="New LossGuide lead" />
+              <input type="hidden" name="_redirect" value="https://www.lossguide.co.uk/thanks.html" />
+
               <input
                 type="email"
                 name="email"
                 placeholder="Enter your email"
                 required
               />
+
               <button type="submit" class="btn btn-primary">Get free checklist</button>
             </form>
 
