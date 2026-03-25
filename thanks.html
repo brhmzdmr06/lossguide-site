@@ -3,102 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>You're in | LossGuide</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Thank You | LossGuide</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background: #f5f0eb;
-      color: #1f2a25;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
+    :root{
+      --green:#2D4A3E;
+      --cream:#F5F0EB;
+      --text:#1f2a24;
+      --muted:#5f6b64;
+      --line:#e3ddd6;
+      --white:#ffffff;
     }
 
-    .box {
-      max-width: 600px;
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-      text-align: center;
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background:var(--cream);
+      color:var(--text);
     }
 
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
+    .wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
     }
 
-    p {
-      color: #5f6d66;
-      margin-bottom: 25px;
+    .card{
+      max-width:640px;
+      width:100%;
+      background:var(--white);
+      padding:40px 30px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      text-align:center;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-      margin: 10px 0;
+    h1{
+      color:var(--green);
+      margin-bottom:10px;
+      font-size:34px;
     }
 
-    .primary {
-      background: #2d4a3e;
-      color: white;
+    p{
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.6;
+      margin-bottom:12px;
     }
 
-    .secondary {
-      border: 1px solid #2d4a3e;
-      color: #2d4a3e;
+    .btn{
+      display:inline-block;
+      margin-top:25px;
+      padding:14px 22px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:600;
+      font-size:16px;
     }
 
-    .divider {
-      margin: 30px 0;
-      height: 1px;
-      background: #eee;
+    .primary{
+      background:var(--green);
+      color:#fff;
     }
 
-    .small {
-      font-size: 14px;
-      color: #888;
+    .secondary{
+      display:block;
+      margin-top:12px;
+      color:var(--green);
+      font-size:14px;
+      text-decoration:none;
     }
+
   </style>
 </head>
+
 <body>
+  <div class="wrap">
+    <div class="card">
 
-  <div class="box">
-    <h1>You’re all set</h1>
-    <p>Your free checklist is ready.</p>
+      <h1>Thank you</h1>
 
-    <!-- FREE DOWNLOAD -->
-    <a href="/checklist.pdf" class="btn primary">Download Free Checklist</a>
+      <p>Your free checklist is ready.</p>
 
-    <div class="divider"></div>
+      <p>
+        This guide will help you take the first practical steps after a death in the UK,
+        clearly and without overwhelm.
+      </p>
 
-    <h2>Want the full step-by-step version?</h2>
-    <p>
-      Get the complete UK checklist with clear order, guidance, and everything in one place.
-    </p>
+      <!-- PDF BUTTON -->
+      <a href="/lossguide-free-checklist.pdf" class="btn primary" download>
+        Download Free Checklist
+      </a>
 
-    <!-- STRIPE ESSENTIAL -->
-    <a href="https://buy.stripe.com/aFa28q53R2tSfI85KP5sA04" class="btn primary">
-      Get Full Checklist (£9)
-    </a>
+      <!-- BACK -->
+      <a href="/" class="secondary">
+        Back to homepage
+      </a>
 
-    <div class="small">
-      One-time payment. Instant access.
     </div>
-
-    <div class="divider"></div>
-
-    <a href="/" class="btn secondary">Back to site</a>
   </div>
-
 </body>
 </html>
